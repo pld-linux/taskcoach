@@ -7,7 +7,7 @@ License:	GPL v2
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/taskcoach/TaskCoach-%{version}.tar.gz
 # Source0-md5:	4265b00ae37f84507f8a1c69aa32a908
-URL:		http://paintown.sourceforge.net
+URL:		http://www.taskcoach.org/
 BuildRequires:	python-wxPython-devel
 Requires:	python-wxPython
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -52,6 +52,28 @@ tasks and todo lists. Task Coach currently has the following features:
 
 %description -l hu.UTF-8
 Task Coach egy egyszerű, nyílt forráskódú teendő-nyilvántartó.
+Jelenleg a következő lehetőségei vannak:
+- Feladatok és alfeladatok létrehozása, szerkesztése és törlése
+- A feladatoknak címük, leírásuk, fontosságuk, kezdő, lejárati és
+  bejezési idejük van és esetleg figyelmeztetés is. Lehet napi, heti
+  vagy havi rendszerességgel is.
+- A feladatokat listaként vagy faként is megnézheted
+- A feladatokat sorbarendezheted tulajdonságuk szerint, pl. cím,
+  költségvetés, lejárati idő, stb. szerint.
+- Néhány szűrőt is használhatsz, pl. a befejezett feladatokat
+  elrejtheted, vagy csak a ma esedékeseket láthatod.
+- E-mailből is készíthetsz feladatot (Outlook vagy Thunderbird)
+- Csatolmányokat is társíthatsz feladatokhoz, megjegyzéseket.
+- A feladat állapota függ az alfeladatitól és vissza is.
+- Felhasználói kategóriák létrehozása
+- Beállítások végérvényesek és automatikusan elmentdőnek. Az utoljára
+  megnyitott fájl nyílik meg legközelebb.
+- A feladatokkal töltött idő követése, költségvetés létrehozása.
+- A fájlformátum XML.
+- HTML-be, CSV-be, iCalendar/ICS formátumokba exportálás.
+- Nyomtatási lehetőség.
+- Cserélhető adathordozóról is lehet futtatni.
+- Funambol szerverről szinkronizálhatók.
 
 %prep
 %setup -q -n TaskCoach-%{version}
