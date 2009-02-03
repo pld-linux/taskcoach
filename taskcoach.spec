@@ -1,5 +1,6 @@
-Summary:	Task Coach is a simple open source todo manager to manage personal tasks and todo lists
+Summary:	Task Coach - simple open source todo manager to manage personal tasks and todo lists
 Summary(hu.UTF-8):	Task Coach egy egyszerű, nyílt forráskódú teendő-nyilvántartó
+Summary(pl.UTF-8):	Task Coach - prosty zarządca osobistej listy zadań i rzeczy do zrobienia
 Name:		taskcoach
 Version:	0.72.0
 Release:	0.1
@@ -9,6 +10,7 @@ Source0:	http://dl.sourceforge.net/taskcoach/TaskCoach-%{version}.tar.gz
 # Source0-md5:	68b4c7756a81a87ddbce9f07735fcbf3
 URL:		http://www.taskcoach.org/
 BuildRequires:	python-wxPython-devel
+BuildRequires:	rpm-pythonprov
 Requires:	python-wxPython
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -75,15 +77,58 @@ Jelenleg a következő lehetőségei vannak:
 - Cserélhető adathordozóról is lehet futtatni.
 - Funambol szerverről szinkronizálhatók.
 
+%description -l pl.UTF-8
+Task Coach to prosty, mający otwarte źródła zarządca zadań służący do
+zarządzania osobistymi listami zadań i rzeczy do zrobienia (todo).
+Aktualnie ma on następujące cechy:
+
+- Możliwe jest tworzenie, edycję i usuwanie zadań i podzadań.
+- Zadania mają temat, opis, priorytet, datę rozpoczęcia, datę
+  płatności, datę ukończenia i opcjonalne przypomnienie; zadania mogą
+  powtarzać się w cyklu dziennym, tygodniowym lub miesięcznym.
+- Zadania mogą być oglądane jako lista lub drzewo.
+- Zadania mogą być sortowane po wszystkich atrybutach, np. temacie,
+  budżecie, pozostałym budżecie, dacie płatności itd.
+- Istnieją różne filtry, pozwalające np. ukryć zadania ukończone lub
+  oglądać tylko zadania płatne dzisiaj.
+- Zadania można tworzyć przeciągając wiadomość e-mail z Outlooka lub
+  Thunderbirda na przeglądarkę zadań.
+- Można dodawać załączniki do zadań, notatek i kategorii poprzez
+  przeciągnięcie i upuszczenie plików, wiadomości e-mail z Outlooka
+  lub Thunderbirda albo URL-i na zadanie, notatkę lub kategorię.
+- Status zadania zależy od podzadań i na odwrót. Np. jeśli zaznaczymy
+  ostatnie niedokończone podzadanie jako zakończone, nadrzędne zadanie
+  automatycznie zostanie zaznaczone jako także zakończone.
+- Zadania i notatki mogą być przypisywane do kategorii zdefiniowanych
+  przez użytkownika.
+- Ustawienia są trwałe i zapisywane automatycznie. Ostatni otwarty
+  plik jest wczytywany automatycznie po uruchomieniu Task Coacha.
+- Możliwe jest śledzenie czasu spędzanego nad zadaniami. Zadania mogą
+  mieć budżet. Spędzony czas można oglądać dla własnego okresu badań
+  oraz dla dni, tygodni i miesięcy.
+- Formatem plików Task Coucha jest XML.
+- Zadania, notatki, badania i kategorie mogą być eksportowane do
+  formatów HTML i CSV; próby można eksportować także do formatu
+  iCalendar/ICS.
+- Zadania, badania, notatki i kategorie można drukować; przy
+  drukowaniu Task Coach drukuje informacje widoczne w bieżącym widoku
+  z uwzględnieniem filtrów i kolejności sortowania.
+- Task Coach może być uruchamiany z nośnika wymiennego.
+- Zadania i notatki mogą być synchronizowane poprzez serwer Funambol,
+  taki jak ScheduleWorld.
+  
 %prep
 %setup -q -n TaskCoach-%{version}
 
 %build
-python setup.py build
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-python setup.py install --root $RPM_BUILD_ROOT
+
+%{__python} setup.py install \
+	--root $RPM_BUILD_ROOT
+
 rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/buildlib
 
 %clean
@@ -93,6 +138,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGES.txt INSTALL.txt PUBLICITY.txt README.txt
 %attr(755,root,root) %{_bindir}/taskcoach*
-%{py_sitescriptdir}/TaskCoach-%{version}-py2.6.egg-info
+%{py_sitescriptdir}/TaskCoach-%{version}-py*.egg-info
 %dir %{py_sitescriptdir}/taskcoachlib
 %{py_sitescriptdir}/taskcoachlib/*
