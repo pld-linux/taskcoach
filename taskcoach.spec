@@ -1,9 +1,10 @@
+# TODO: ppc build fix (syncml support)
 Summary:	Task Coach - simple open source todo manager to manage personal tasks and todo lists
 Summary(hu.UTF-8):	Task Coach egy egyszerű, nyílt forráskódú teendő-nyilvántartó
 Summary(pl.UTF-8):	Task Coach - prosty zarządca osobistej listy zadań i rzeczy do zrobienia
 Name:		taskcoach
 Version:	0.72.1
-Release:	1
+Release:	1.1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/taskcoach/TaskCoach-%{version}.tar.gz
