@@ -96,8 +96,8 @@ Aktualnie ma on następujące cechy:
 - Zadania można tworzyć przeciągając wiadomość e-mail z Outlooka lub
   Thunderbirda na przeglądarkę zadań.
 - Można dodawać załączniki do zadań, notatek i kategorii poprzez
-  przeciągnięcie i upuszczenie plików, wiadomości e-mail z Outlooka
-  lub Thunderbirda albo URL-i na zadanie, notatkę lub kategorię.
+  przeciągnięcie i upuszczenie plików, wiadomości e-mail z Outlooka lub
+  Thunderbirda albo URL-i na zadanie, notatkę lub kategorię.
 - Status zadania zależy od podzadań i na odwrót. Np. jeśli zaznaczymy
   ostatnie niedokończone podzadanie jako zakończone, nadrzędne zadanie
   automatycznie zostanie zaznaczone jako także zakończone.
@@ -113,17 +113,20 @@ Aktualnie ma on następujące cechy:
   formatów HTML i CSV; próby można eksportować także do formatu
   iCalendar/ICS.
 - Zadania, badania, notatki i kategorie można drukować; przy
-  drukowaniu Task Coach drukuje informacje widoczne w bieżącym widoku
-  z uwzględnieniem filtrów i kolejności sortowania.
+  drukowaniu Task Coach drukuje informacje widoczne w bieżącym widoku z
+  uwzględnieniem filtrów i kolejności sortowania.
 - Task Coach może być uruchamiany z nośnika wymiennego.
 - Zadania i notatki mogą być synchronizowane poprzez serwer Funambol,
   taki jak ScheduleWorld.
-  
+
 %prep
 %setup -q -n TaskCoach-%{version}
+%ifarch ppc
+	rm -fv taskcoachlib/bin.in/linux/*.so
+%endif
 
 %build
-%{__python} setup.py build
+%{__python} setup.py build --executable /usr/bin/python
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -131,8 +134,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__python} setup.py install \
 	--root $RPM_BUILD_ROOT
 
-%{__sed} -i "1 s@python.*@python@" $RPM_BUILD_ROOT%{_bindir}/taskcoach.py
 mv $RPM_BUILD_ROOT%{_bindir}/taskcoach{.py,}
+rm -f $RPM_BUILD_ROOT%{_bindir}/taskcoach.pyw
 
 rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/buildlib
 
