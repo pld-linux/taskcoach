@@ -5,7 +5,7 @@ Summary(pl.UTF-8):	Task Coach - prosty zarządca osobistej listy zadań i rzeczy
 Name:		taskcoach
 Version:	0.72.8
 Release:	1
-License:	GPL v2
+License:	GPL v3
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/taskcoach/TaskCoach-%{version}.tar.gz
 # Source0-md5:	1acc21f61736b444baf302eef82d1739
