@@ -1,14 +1,13 @@
-# TODO: ppc build fix (syncml support)
 Summary:	Task Coach - simple open source todo manager to manage personal tasks and todo lists
 Summary(hu.UTF-8):	Task Coach egy egyszerű, nyílt forráskódú teendő-nyilvántartó
 Summary(pl.UTF-8):	Task Coach - prosty zarządca osobistej listy zadań i rzeczy do zrobienia
 Name:		taskcoach
-Version:	0.77.0
+Version:	0.78.0
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/taskcoach/TaskCoach-%{version}.tar.gz
-# Source0-md5:	04ee2efa66c793482b30c09bc56e8580
+# Source0-md5:	be9bc5209d236903217b8d9496f565f0
 Patch0:		%{name}-desktop.patch
 URL:		http://www.taskcoach.org/
 BuildRequires:	python-devel
@@ -123,9 +122,6 @@ Aktualnie ma on następujące cechy:
 %prep
 %setup -q -n TaskCoach-%{version}
 %patch0 -p1
-%ifarch ppc
-	rm -fv taskcoachlib/bin.in/linux/*.so
-%endif
 
 %build
 %{__python} setup.py build --executable /usr/bin/python
