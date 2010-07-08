@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	Task Coach egy egyszerű, nyílt forráskódú teendő-nyilv�
 Summary(pl.UTF-8):	Task Coach - prosty zarządca osobistej listy zadań i rzeczy do zrobienia
 Name:		taskcoach
 Version:	1.0.5
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/taskcoach/TaskCoach-%{version}.tar.gz
