@@ -14,6 +14,7 @@ BuildRequires:	python-devel
 BuildRequires:	python-wxPython-devel
 BuildRequires:	rpm-pythonprov
 Requires:	python-wxPython
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -149,7 +150,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc HACKING.txt INSTALL.txt PUBLICITY.txt README.txt TODO.tsk
 %attr(755,root,root) %{_bindir}/taskcoach*
+%if "%{py_ver}" > "2.4"
 %{py_sitescriptdir}/TaskCoach-%{version}-py*.egg-info
+%endif
 %dir %{py_sitescriptdir}/taskcoachlib
 %{py_sitescriptdir}/taskcoachlib/*
 %{_iconsdir}/taskcoach.png
