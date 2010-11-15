@@ -2,12 +2,12 @@ Summary:	Task Coach - simple open source todo manager to manage personal tasks a
 Summary(hu.UTF-8):	Task Coach egy egyszerű, nyílt forráskódú teendő-nyilvántartó
 Summary(pl.UTF-8):	Task Coach - prosty zarządca osobistej listy zadań i rzeczy do zrobienia
 Name:		taskcoach
-Version:	1.2.2
+Version:	1.2.3
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/taskcoach/TaskCoach-%{version}.tar.gz
-# Source0-md5:	d901585607c1f6cccefd5727e8cb5fe6
+Source0:	http://downloads.sourceforge.net/taskcoach/TaskCoach-%{version}.tar.gz
+# Source0-md5:	277135c73d8fe708053692b3c2ef6b27
 Patch0:		%{name}-desktop.patch
 URL:		http://www.taskcoach.org/
 BuildRequires:	python-devel
@@ -84,7 +84,7 @@ Task Coach to prosty, mający otwarte źródła zarządca zadań służący do
 zarządzania osobistymi listami zadań i rzeczy do zrobienia (todo).
 Aktualnie ma on następujące cechy:
 
-- Możliwe jest tworzenie, edycję i usuwanie zadań i podzadań.
+- Możliwe jest tworzenie, edycja i usuwanie zadań i podzadań.
 - Zadania mają temat, opis, priorytet, datę rozpoczęcia, datę
   płatności, datę ukończenia i opcjonalne przypomnienie; zadania mogą
   powtarzać się w cyklu dziennym, tygodniowym lub miesięcznym.
@@ -133,9 +133,8 @@ rm -rf $RPM_BUILD_ROOT
 	--root $RPM_BUILD_ROOT
 
 mv $RPM_BUILD_ROOT%{_bindir}/taskcoach{.py,}
-rm -f $RPM_BUILD_ROOT%{_bindir}/taskcoach.pyw
 
-rm -rf $RPM_BUILD_ROOT%{py_sitescriptdir}/buildlib
+%{__rm} -r $RPM_BUILD_ROOT%{py_sitescriptdir}/buildlib
 
 install -d $RPM_BUILD_ROOT%{_iconsdir}
 install icons.in/taskcoach.png $RPM_BUILD_ROOT%{_iconsdir}
