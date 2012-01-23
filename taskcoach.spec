@@ -2,13 +2,13 @@ Summary:	Task Coach - simple open source todo manager to manage personal tasks a
 Summary(hu.UTF-8):	Task Coach egy egyszerű, nyílt forráskódú teendő-nyilvántartó
 Summary(pl.UTF-8):	Task Coach - prosty zarządca osobistej listy zadań i rzeczy do zrobienia
 Name:		taskcoach
-Version:	1.3.4
+Version:	1.3.5
 Release:	1
 Epoch:		1
 License:	GPL v3
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/taskcoach/TaskCoach-%{version}.tar.gz
-# Source0-md5:	b22fcbca434bfef193cf423b879c688b
+# Source0-md5:	22c4eb0809a808cb8dd4dc994b2cc078
 Patch0:		%{name}-desktop.patch
 URL:		http://www.taskcoach.org/
 BuildRequires:	python-devel
